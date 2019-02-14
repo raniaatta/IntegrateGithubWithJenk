@@ -8,5 +8,6 @@ public class Main {
 		int x = s.nextInt();
 		int y = s.nextInt();
 		System.out.println(x+y);
+		//
 	}
 }
