@@ -1,0 +1,23 @@
+<project default="compile">
+    <property name="src.java.dir" location="./MyProject/src/main"/>
+    <property name="result.dir" location = "./result"/>
+    <property name="result.javaclasses.dir" location = "${result.dir}/classes"/>
+    <property name="result.jar.file" location = "${result.dir}/MyProj.jar"/>
+
+    <target name="resultcreate">
+        <mkdir dir="${result.dir}"/>
+    </target>
+    <target name="compile" depends="resultcreate">
+        <mkdir dir="${result.javaclasses.dir}"/>
+        <javac srcdir="${src.java.dir}" destdir="${result.javaclasses.dir}" debug="true" includeantruntime="false">
+        </javac>
+
+    </target>
+
+    <target name="jar" depends="compile">
+        <jar desfile="${result.jar.file}" >
+            <fileset dir="${result.javaclasses.dir}"></fileset>
+        </jar>
+    </target>
+
+</project>
